@@ -6,6 +6,9 @@
 > **Target Audience:** Senior Leadership Team, Shopee (Thailand)  
 > **Deliverables:** [1-Page Executive BD Memo (`memo.md`)](./memo.md) | 6 Analytical Jupyter Notebooks (`notebooks/`) | 13 Publication-Grade Charts (`charts/`) | Verified Public Datasets (`data/`)
 
+> **Methodology & AI Disclosure**
+> โปรเจ็คนี้จัดทำด้วย **AI-assisted research workflow** ภายใต้หลัก **human-in-the-loop** — AI ใช้เป็น *research analyst* (ค้นและจัดโครงข้อมูลสาธารณะ, ตรวจ consistency, เขียนโค้ดวิเคราะห์) ไม่ใช่ *source of truth* ส่วน **Strategic Judgement และการอนุมัติตัวเลขเป็นของมนุษย์** · ทุกตัวเลขต้องตรวจย้อนกลับได้ (รายละเอียดท้ายเอกสาร)
+
 ---
 
 ## Executive Summary (บทสรุปผู้บริหาร)
@@ -243,3 +246,52 @@ uv venv .venv
 uv pip install pandas matplotlib nbformat nbclient ipykernel fonttools
 .venv/bin/python notebooks/generate_all_notebooks.py
 ```
+
+---
+
+## AI Usage & Research Integrity (วิธีวิจัยและขอบเขตการใช้ AI)
+
+> **Transparency statement:** โปรเจ็คนี้จัดทำด้วย **AI-assisted research workflow** ภายใต้หลัก **human-in-the-loop** — เครื่องมือที่ใช้คือ LLM-based AI assistant ร่วมกับ Python (pandas / Matplotlib) โดย AI ทำหน้าที่เป็น *research analyst* (ค้นแหล่งข้อมูล, จัดโครง dataset, คำนวณ, เขียนโค้ดกราฟ, ร่างเอกสาร) **ไม่ใช่ source of truth** — ตัวเลขทุกตัวต้องตรวจสอบย้อนกลับได้ และผ่านการอนุมัติจากมนุษย์ก่อนเผยแพร่
+
+### 1. Scope of AI Contribution (AI ช่วยงานส่วนใด)
+
+| Workstream | AI Contribution | Human Oversight |
+|---|---|---|
+| **Source discovery & structuring** | ค้นและจัดโครงแหล่งข้อมูลสาธารณะ (Cube Asia, Momentum Works, DBD, TCCT, กรมศุลกากร, พช.) ลงใน `data/raw/` พร้อมระบุ base/definition ของแต่ละตัวเลข | ตรวจว่าแหล่งมีอยู่จริงและอ้างอิงได้ |
+| **Analytical coding** | เขียน pipeline Python/pandas + Matplotlib, สร้าง notebooks ทั้ง 6 และกราฟทั้ง 13 ตาม design system เดียว | ตรวจโค้ดและตรวจภาพกราฟทุกไฟล์ |
+| **Quantitative checks** | คำนวณ %YoY, ส่วนแบ่งตลาด, weighted scoring rubric และ margin bridge พร้อมตรวจผลรวมให้ลงตัว | ตรวจสูตรและสมมติฐานทุกจุด |
+| **Narrative drafting** | ร่างบทวิเคราะห์และ Executive Memo ตามโครง Section 1–6 | ตรวจน้ำเสียง ข้อสรุป และข้อจำกัด |
+| **Quality audit** | รันสคริปต์ audit (null values, notebook ที่ยังไม่ execute, DPI, link เสีย) | เป็นผู้อนุมัติผลสุดท้าย |
+
+### 2. Guardrails — สิ่งที่ AI ไม่ได้ทำ
+
+- **ไม่สร้างหรือเดาตัวเลข** — ทุกค่าต้องมาจากแหล่งสาธารณะที่ระบุชื่อได้ หรือคำนวณจากค่านั้นด้วยสูตรที่เปิดเผยใน notebook
+- **ไม่อ้างแหล่งที่ไม่มีอยู่จริง** — รายชื่อแหล่งทั้งหมดอยู่ใน [`data/raw/data_sources_and_notes.md`](./data/raw/data_sources_and_notes.md)
+- **ไม่ใช้ข้อมูลภายใน (non-public) ของ Shopee** — การวิเคราะห์อิงเฉพาะข้อมูลสาธารณะ
+- **ไม่ปล่อยข้อสรุปที่ไม่มีตัวเลขรองรับ** — ข้อเสนอแนะทุกข้อผูกกับกราฟ/ตัวเลขใน Section 1–5
+
+### 3. Verification Protocol (การตรวจสอบ 4 ชั้น)
+
+1. **Source reconciliation** — ทุก metric มีแถวใน §7 ระบุค่าที่ใช้, base/definition, ค่าที่แหล่งอื่นรายงาน และเหตุผลที่เลือก
+2. **Arithmetic integrity** — ตรวจผลรวมและ weighted score ให้ลงตัว (เช่น 51.8 + 36.5 + 11.7 = 100.0 และ rubric score คำนวณจากน้ำหนักที่ประกาศไว้)
+3. **Cross-artifact consistency** — สแกน README / memo / notebooks / charts / CSVs ให้ตัวเลขตรงกันทุกไฟล์ ไม่มีค่าใดขัดกัน
+4. **Rendered-output check** — ตรวจภาพกราฟจริงทุกไฟล์ที่ความละเอียด 300 DPI (ไม่ใช่ตรวจเฉพาะ source) ร่วมกับ automated audit ของ `bd-project-reviewer` (ผลล่าสุด: 0 flags)
+
+### 4. Reproducibility & Audit Trail (ตรวจสอบซ้ำได้)
+
+- **Single source of truth:** ตัวเลขทั้งหมดอยู่ใน `data/processed/*.csv` → notebook อ่านจาก CSV → กราฟ export จาก notebook
+- **Deterministic build:** `python notebooks/generate_all_notebooks.py` สร้าง notebooks ทั้ง 6 และกราฟทั้ง 13 ใหม่ได้ทั้งหมด
+- **Versioned trail:** ทุกการแก้ไขตัวเลขหรือถ้อยคำมี commit history ใน Git พร้อมเหตุผลกำกับ
+
+### 5. Known Limitations (ข้อจำกัดที่ยอมรับ)
+
+- ตัวเลข GMV จาก Cube Asia เป็น **estimation** ไม่ใช่ตัวเลขทางการจากแพลตฟอร์ม
+- ตัวเลขกำไร/ขาดทุนของ TikTok Shop อ้างอิงงบและสื่อรายงาน **ไม่ได้ตรวจสอบจากงบการเงินที่ผ่านการสอบบัญชี**
+- ต้นทุนผู้ขาย 34.7% เป็น **illustrative estimate** จาก fee schedule สาธารณะ (actual varies by category and seller size)
+- มาตรการลด GP เป็น **มาตรการชั่วคราว 6 เดือน** หากขยายหรือเปลี่ยนเป็นถาวร ต้องประเมิน moat ใหม่ (ดู §8 Early Warning Indicators)
+
+> **Division of labour:** AI เร่งความเร็วในการค้นคว้า ตรวจ consistency และผลิตกราฟ/เอกสาร — แต่ **Strategic Judgement, การเลือกสมมติฐาน และการอนุมัติข้อสรุปเป็นของมนุษย์** เอกสารนี้จึงควรใช้เป็นจุดเริ่มต้นของการตัดสินใจ ไม่ใช่คำตอบสุดท้าย
+
+---
+
+<sub>จัดทำด้วย AI-assisted research workflow ภายใต้หลัก human-in-the-loop · ใช้ข้อมูลสาธารณะเท่านั้น (ณ ตุลาคม 2026) · ทุกตัวเลขตรวจสอบย้อนกลับได้ผ่าน §7 และ Git history</sub>
