@@ -46,7 +46,7 @@
 **Notebook:** [`notebooks/02_threat_landscape.ipynb`](./notebooks/02_threat_landscape.ipynb) | **Data:** [`sec02_competitor_financials.csv`](./data/processed/sec02_competitor_financials.csv), [`sec02_threat_matrix.csv`](./data/processed/sec02_threat_matrix.csv)
 
 - **Key Findings:**
-  - **Financial Runway Asymmetry (เปรียบเทียบสายป่านและโครงสร้างกำไรจากงบ DBD ปีฐาน 2567):** Shopee ประเทศไทยมีฐานกำไรที่แข็งแกร่ง (**Net Profit +4,631 ล้านบาท** จากรายได้ **49,965 ล้านบาท** และยังมีกำไรจาก **SPX Express** อีก **+469 ล้านบาท** จากรายได้ 23,499 ล้านบาท) ในขณะที่ TikTok Shop ต้องยอมเผาเงิน **ขาดทุนสุทธิ -3,678 ล้านบาท** (จากรายได้ 12,066 ล้านบาท) เพื่ออัดฉีดคูปองและค่าคอมมิชชัน Affiliate ซื้อพฤติกรรมผู้บริโภค
+  - **Financial Runway Asymmetry (เปรียบเทียบสายป่านและโครงสร้างกำไรจากงบ DBD ปีฐาน 2567):** Shopee ประเทศไทยมีฐานกำไรที่แข็งแกร่ง (**Net Profit +4,630 ล้านบาท** จากรายได้ **49,964 ล้านบาท** และยังมีกำไรจาก **SPX Express** อีก **+469 ล้านบาท** จากรายได้ 23,499 ล้านบาท) ในขณะที่ TikTok Shop ต้องยอมเผาเงิน **ขาดทุนสุทธิ -3,678 ล้านบาท** (จากรายได้ 12,066 ล้านบาท) เพื่ออัดฉีดคูปองและค่าคอมมิชชัน Affiliate ซื้อพฤติกรรมผู้บริโภค
   - **2x2 Threat Positioning Matrix:**
     - **TikTok Shop (*Structural Threat*):** ภัยคุกคามต่อ GMV สูงสุด (9.0/10) และตอบโต้ได้ยากที่สุด (8.4/10) เพราะเปลี่ยนพฤติกรรมการซื้อจาก **Intent-based (ตั้งใจค้นหา)** ไปสู่ **Impulse / Content-led Discovery (ดูคอนเทนต์แล้วซื้อทันที)**
     - **Temu (*Price Disruptor*):** เข้าตลาดไทยเมื่อ ก.ค. 2024 มียอดดาวน์โหลดสะสมทะลุ **10 ล้านครั้ง** (*AppMagic*) แต่ยังมี **GMV Share <3%** บทบาทของ Temu จึงไม่ใช่การแย่ง GMV ก้อนใหญ่โดยตรง แต่เป็นการกดเพดานราคาสินค้า Non-brand ส่งตรงจากโรงงานจีน (Factory-Direct)
@@ -191,7 +191,7 @@
 - **Market Share & GMV Growth:** Cube Asia (*Tradewinds Dataset 2024–H1 2026*) และ Momentum Works (*Ecommerce in Southeast Asia 2024–2025*)
 - **Corporate Financials (งบการเงินนิติบุคคลไทย):** กรมพัฒนาธุรกิจการค้า (DBD DataWarehouse+) และ Creden Data สำหรับ *บจก. ช้อปปี้ (ประเทศไทย)* (ปี 2565–2568), *บจก. เอสพีเอ็กซ์ เอ็กซ์เพรส (ประเทศไทย)*, *บจก. ลาซาด้า* และ *บจก. ติ๊กต๊อก ช็อป (ประเทศไทย)*
 - **Seller Fee Structure & GP Cap:** Shopee Seller Centre Thailand, FlowAccount E-Commerce Benchmarks และประกาศกระทรวงพาณิชย์ / กรมประชาสัมพันธ์ (`19.26% -> 8.03%–13.91%`)
-- **Regulatory & OTOP Programs:** กรมสรรพากรและกรมศุลกากร (มาตรการ VAT 7% สินค้านำเข้า `<1,500 บาท`), สำนักงานคณะกรรมการการแข่งขันทางการค้า (TCCT Guideline 6 ด้าน) และกรมการพัฒนาชุมชน กระทรวงมหาดไทย (โครงการ OTOP ไทยโตไกลกับ Shopee เรต GP 4.00%)
+- **Regulatory & OTOP Programs:** กรมสรรพากรและกรมศุลกากร (มาตรการภาษีนำเข้า 2 ระยะ: VAT 7% สินค้า `<1,500 บาท` ตั้งแต่ 5 ก.ค. 2567 และการยกเลิก Duty Exemption 1,500 บาท ตั้งแต่ 1 ม.ค. 2026), สำนักงานคณะกรรมการการแข่งขันทางการค้า (TCCT Guideline 6 ด้าน) และกรมการพัฒนาชุมชน กระทรวงมหาดไทย (โครงการ OTOP ไทยโตไกลกับ Shopee เรต GP 4.00%)
 - **Temu Metrics:** AppMagic และ Business of Apps (ยอดดาวน์โหลดสะสมในไทย >10 ล้านครั้ง, GMV Share <3%)
 
 ---
@@ -220,7 +220,9 @@ shopee-bd-analysis/
 │       ├── sec05_strategic_options.csv
 │       └── sec06_roadmap_and_impact.csv
 ├── notebooks/                # Jupyter Notebooks ทั้ง 6 ส่วน + โมดูลตั้งค่ากราฟ
-│   ├── chart_style.py
+│   ├── chart_style.py        # Design system (brand colors, Thai+Latin font, titles/sources)
+│   ├── fonts/                # Noto Sans Thai Combined (Regular/Bold) สำหรับ Thai + อังกฤษในกราฟเดียว
+│   ├── generate_all_notebooks.py  # สร้าง + execute notebooks ทั้ง 6 และ export กราฟทั้ง 13
 │   ├── 01_market_shift.ipynb
 │   ├── 02_threat_landscape.ipynb
 │   ├── 03_internal_pressure.ipynb
@@ -228,6 +230,8 @@ shopee-bd-analysis/
 │   ├── 05_strategic_options.ipynb
 │   └── 06_recommendation.ipynb
 ├── charts/                   # กราฟ Matplotlib (PNG ความละเอียด 300 DPI ทั้ง 13 กราฟ)
+├── .agents/skills/bd-project-reviewer/  # สกิลรีวิวโปรเจ็ค (audit script + rubric)
+├── .gitignore
 ├── memo.md                   # 1-Page Executive BD Memo สำหรับผู้บริหาร Shopee
 └── README.md                 # สรุปภาพรวมโปรเจ็ค, Storyline, Methodology และข้อเสนอแนะ
 ```
