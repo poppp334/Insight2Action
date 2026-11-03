@@ -162,14 +162,14 @@
 
 | # | Indicator | Baseline (ปัจจุบัน) | Trigger Threshold | สิ่งที่ต้องเปลี่ยนถ้า trigger | แหล่งติดตาม | ความถี่ |
 |---|---|---|---|---|---|---|
-| 1 | TikTok Shop unit economics | ยังขาดทุน (3.67B ปี 2024) | ประกาศ profitability หรือ positive unit economics ภายใน 12 เดือน | ทบทวนสมมติฐาน "TikTok Shop เผาเงิน" — อาจต้องยกระดับ Selective Attack เป็น 40% | งบการเงิน / ข่าว / รายงาน分析师 | รายไตรมาส |
+| 1 | TikTok Shop unit economics | ยังขาดทุน (3.67B ปี 2024) | ประกาศ profitability หรือ positive unit economics ภายใน 12 เดือน | ทบทวนสมมติฐาน "TikTok Shop เผาเงิน" — อาจต้องยกระดับ Selective Attack เป็น 40% | งบการเงิน / ข่าว / รายงานนักวิเคราะห์ | รายไตรมาส |
 | 2 | ส่วนต่าง GMV share Shopee vs TikTok Shop | TikTok Shop นำ 3 pp (48 vs 45) | ห่างเกิน 5 pp ติดกัน 2 ไตรมาส | จาก "parity" → "structural loss of leadership" — ต้องเปลี่ยน 50:30:20 เป็น defensive emergency | Cube / Momentum Works | รายไตรมาส |
 | 3 | Shopee Thailand profit | 2.7B บาท | ต่ำกว่า 1.5B หรือติดลบ | Core Defense ล้มเหลว — ต้องตัด Selective Attack ทั้งหมดและ focus profitability | DBD / งบการเงิน | รายปี |
 | 4 | มาตรการลด GP | 6 เดือน (ธ.ค. 2026 – พ.ค. 2027) | ถูกขยายเกิน พ.ค. 2027 หรือกลายเป็นถาวร | Regulatory tailwind กลายเป็น permanent cost structure — ต้องประเมิน moat ของ OTOP ใหม่ | ประกาศกระทรวงพาณิชย์ | เมื่อมีประกาศ |
 | 5 | Temu GMV share ไทย | marginal (<2–3% ประมาณ) | เกิน 5% | ยกระดับจาก "watchlist" เป็น "active threat" — ต้องเพิ่ม resource ด้านราคา | รายงานตลาด / MAU proxy | รายครึ่งปี |
 | 6 | การย้ายแพลตฟอร์มของผู้ขายรายใหญ่ | ไม่มีข้อมูล systematic | มีผู้ขาย top-tier ประกาศย้าย/ลดการขายบน Shopee มากกว่า 3 รายใน 1 ไตรมาส | Ecosystem risk กำลังเป็นจริง — ต้องเร่ง Seller Retention ก่อนกำหนด | ประกาศผู้ขาย / FB group ผู้ขาย / ข่าว | รายไตรมาส |
 | 7 | TCCT enforcement | ยังไม่มีคดี | TCCT เปิดกรณีสอบสวน Shopee เรื่องบังคับใช้ SPX / algorithm | SPX moat เสี่ยงถูก unbundle — ต้องเตรียมแผนสำรองด้านโลจิสติกส์ | ประกาศ TCCT | เมื่อมีเหตุการณ์ |
-| 8 | การรับสมัคร OTOP | เพิ่งเริ่ม | adoption ต่ำกว่าเป้า >50% หลัง 6 เดือน | Regulatory moat thesis อ่อนลง — ต้องหาช่องทางจูงใจผู้ขาย本土 ทางอื่น | Shopee Seller Centre / ข่าว | รายครึ่งปี |
+| 8 | การรับสมัคร OTOP | เพิ่งเริ่ม | adoption ต่ำกว่าเป้า >50% หลัง 6 เดือน | Regulatory moat thesis อ่อนลง — ต้องหาช่องทางจูงใจผู้ขายในประเทศทางอื่น | Shopee Seller Centre / ข่าว | รายครึ่งปี |
 | 9 | ROI ของ Affiliate / KOS | ยังไม่วัด | CAC ผ่าน affiliate สูงกว่า organic >2 เท่า | Selective Attack ไม่คุ้ม — ตัดงบ 20% กลับไป Core Defense | Internal data (ถ้ามี) / benchmark อุตสาหกรรม | รายไตรมาส |
 | 10 | ต้นทุนผู้ขาย cross-border หลังภาษีใหม่ | คาดว่าเพิ่มขึ้น | ผู้ขาย cross-border ยังอยู่และดูดซับต้นทุนได้ (ไม่ย้ายออก) | Regulatory moat thesis อ่อนลง — VAT ไม่ได้กัดคู่แข่งเท่าที่คิด | รายงานตลาด / จำนวนผู้ขาย cross-border | รายครึ่งปี |
 
