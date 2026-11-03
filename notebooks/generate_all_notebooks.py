@@ -140,13 +140,13 @@ x = np.arange(len(platforms))
 width = 0.35
 
 yoy_2025 = g_df["yoy_growth_pct"].tolist()
-h1_2026 = g_df["h1_2026_annualized_growth_pct"].tolist()
+h1_2026 = g_df["h1_2026_yoy_growth_pct"].tolist()
 
 bar_colors_2025 = [COLORS["Shopee"], COLORS["TikTok Shop"], COLORS["Lazada"]]
 bar_colors_2026 = ["#FF8A65", COLORS["TikTok Red"], "#5C6BC0"]
 
 rects1 = ax.bar(x - width/2, yoy_2025, width, label="อัตราเติบโตปี 2025 YoY (%)", color=bar_colors_2025, edgecolor="none", zorder=3)
-rects2 = ax.bar(x + width/2, h1_2026, width, label="โมเมนตัมครึ่งแรก H1 2026 YoY (%)", color=bar_colors_2026, edgecolor="none", alpha=0.9, zorder=3)
+rects2 = ax.bar(x + width/2, h1_2026, width, label="อัตราเติบโต H1 2026 YoY (%)", color=bar_colors_2026, edgecolor="none", alpha=0.9, zorder=3)
 
 ax.axhline(0, color="#374151", linewidth=1.1, zorder=2)
 
@@ -165,8 +165,8 @@ for rect in rects2:
             ha="center", va=va, fontsize=10, fontweight="bold", color="#374151")
 
 ax.annotate(
-    "โตเร็วกว่า Shopee >2.3 เท่า\\nจากแรงหนุน Live & Affiliate",
-    xy=(1 + width/2, 75.0), xytext=(1.38, 62.0),
+    "TikTok Shop เร่งตัวเป็น +116.0% ใน H1 2026\\n(โตเร็วกว่า Shopee ~4.9 เท่า จากแรงหนุน Live & Affiliate)",
+    xy=(1 + width/2, 116.0), xytext=(1.30, 99.0),
     fontsize=9.5, fontweight="bold", color="#991B1B",
     bbox=dict(boxstyle="round,pad=0.4", facecolor="#FEF2F2", edgecolor=COLORS["TikTok Red"]),
     arrowprops=dict(arrowstyle="->", color=COLORS["TikTok Red"], lw=1.5)
@@ -175,7 +175,7 @@ ax.annotate(
 ax.set_xticks(x)
 ax.set_xticklabels(platforms, fontsize=11, fontweight="bold")
 ax.set_ylabel("อัตราการเติบโตของ GMV (% YoY)", fontweight="bold")
-ax.set_ylim(-42, 92)
+ax.set_ylim(-42, 138)
 ax.legend(loc="upper left")
 
 chart_style.add_title_and_source(
@@ -620,7 +620,7 @@ ax.legend(loc="upper right")
 chart_style.add_title_and_source(
     ax,
     title="มาตรการรัฐกดเพดาน GP ลงจาก 19.26% เหลือ 8.03-13.91% บีบให้ Shopee ต้องรัดเข็มขัดต้นทุน",
-    subtitle="เปรียบเทียบอัตราค่าธรรมเนียมการขายภาคบังคับ (GP %) ก่อนและหลังมาตรการช่วยเหลือผู้ประกอบการ SME ของกระทรวงพาณิชย์",
+    subtitle="เปรียบเทียบอัตราค่าธรรมเนียมการขายภาคบังคับ (GP %) ก่อนและหลังมาตรการช่วยเหลือผู้ประกอบการ SME ของกระทรวงพาณิชย์ (มาตรการชั่วคราว 6 เดือน: ธ.ค. 2026 – พ.ค. 2027)",
     source_text="ประกาศกระทรวงพาณิชย์ / กรมประชาสัมพันธ์ (PRD) และฐานเศรษฐกิจ (มีผลกับผู้ขายรายย่อยกว่า 1.2 ล้านราย)"
 )
 
@@ -642,8 +642,10 @@ nb04_cells = [
 **Business Question:** กฎใหม่กระทบใครหนักกว่ากัน และ Shopee ใช้เป็นโอกาสได้ไหม?
 
 ### ข้อมูลที่ใช้ (Verified Public Data)
-1. **มาตรการจัดเก็บ VAT 7% สินค้านำเข้า < 1,500 บาท (กรมสรรพากร/กรมศุลกากร):** เก็บ VAT 7% ตั้งแต่บาทแรกของราคา CIF (เริ่ม 5 ก.ค. 2567)
-2. **แนวปฏิบัติ กขค. (TCCT Guideline 6 ด้าน):** คุมความโปร่งใสค่าธรรมเนียม, ห้ามบังคับใช้ขนส่งรายเดียวอย่างไม่เป็นธรรม, และกำกับอัลกอริทึม (Self-preferencing / Visibility blocking)
+1. **มาตรการภาษีนำเข้า 2 ระยะ (กรมสรรพากร/กรมศุลกากร):**
+   - **ระยะที่ 1 (5 ก.ค. 2567):** เก็บ **VAT 7%** ตั้งแต่บาทแรกของราคา CIF สำหรับสินค้านำเข้าที่มีมูลค่า **< 1,500 บาท** (ปิดช่องยกเว้น VAT สินค้าราคาต่ำ)
+   - **ระยะที่ 2 (1 ม.ค. 2569 / 2026):** **ยกเลิกข้อยกเว้นอากรขาเข้า (Duty Exemption) 1,500 บาท** อย่างเป็นทางการ → สินค้านำเข้าทุกราคาต้องเสียทั้ง **อากรขาเข้า + VAT 7%** (Structural Change ที่กัดกำแพงราคาของสินค้าจีนโดยตรง)
+2. **แนวปฏิบัติ กขค. (TCCT Guideline 6 ด้าน):** คุมความโปร่งใสค่าธรรมเนียม, ห้ามบังคับใช้ขนส่งรายเดียวอย่างไม่เป็นธรรม, และกำกับอัลกอริทึม (Self-preferencing / Visibility blocking) — *published 24 มี.ค. 2026 / effective 25 มี.ค. 2026*
 3. **โครงการ "OTOP ไทยโตไกลกับ Shopee" (กรมการพัฒนาชุมชน x Shopee):** ลดค่า GP เหลือเริ่มต้น **4.00%** + ยกเว้นค่าธรรมเนียมโครงสร้างพื้นฐาน + โบนัสเครดิตโฆษณา 50–100%"""
     ),
     new_code_cell(
@@ -674,12 +676,12 @@ display(cost_df)"""
 | **1 = ได้เปรียบ/หนุน (Tailwind)** | ได้รับประโยชน์โดยตรงจากความเท่าเทียมด้านภาษีและการลดค่า GP | ผู้ขาย Local SME และร้านค้า OTOP (เรต GP 4%) มีความสามารถในการแข่งขันสูงขึ้น |"""
     ),
     new_code_cell(
-        """fig, ax = plt.subplots(figsize=(11.2, 6.0))
+        """fig, ax = plt.subplots(figsize=(12.6, 6.2))
 
 stakeholders = heat_df["stakeholder"].tolist()
 measures = [
-    "VAT สินค้านำเข้า <1,500฿\\n(เก็บ 7% ตั้งแต่บาทแรก)",
-    "TCCT: ความโปร่งใสและ\\nเพดานค่าธรรมเนียม",
+    "ภาษีนำเข้า:\\nยกเลิก duty exemption 1,500฿ + VAT 7%\\n(5 ก.ค. 2567 และ 1 ม.ค. 2026)",
+    "TCCT: ความโปร่งใส\\nและเพดานค่าธรรมเนียม",
     "TCCT: ห้ามผูกขาดขนส่ง\\n(Logistics Choice)",
     "TCCT: กำกับอัลกอริทึม\\n& ป้องกันปิดกั้นการมองเห็น"
 ]
@@ -704,7 +706,7 @@ for i in range(len(stakeholders)):
                 fontsize=10, fontweight="bold", color=txt_color)
 
 ax.set_xticks(np.arange(len(measures)))
-ax.set_xticklabels(measures, fontsize=10, fontweight="bold")
+ax.set_xticklabels(measures, fontsize=9.2, fontweight="bold", linespacing=1.45)
 ax.set_yticks(np.arange(len(stakeholders)))
 ax.set_yticklabels(stakeholders, fontsize=10.5, fontweight="bold")
 
@@ -714,8 +716,9 @@ cbar.set_label("ระดับแรงกดดันเชิงลบจา�
 chart_style.add_title_and_source(
     ax,
     title="กฎระเบียบใหม่กระทบผู้ขายจีนและ Temu หนักสุด (5/5) แต่เปิดทางให้ฐาน Local ของ Shopee ได้เปรียบ",
-    subtitle="Heatmap ประเมินระดับผลกระทบจากมาตรการ VAT สินค้านำเข้าและแนวปฏิบัติ TCCT (กขค.) ต่อผู้เล่นแต่ละกลุ่ม",
-    source_text="กรมสรรพากร/กรมศุลกากร (VAT 7% <1,500฿) และสำนักงานคณะกรรมการการแข่งขันทางการค้า (TCCT Guideline 6 ด้าน)"
+    subtitle="Heatmap ประเมินระดับผลกระทบจากมาตรการภาษีนำเข้า 2 ระยะ (VAT 7% สินค้า <1,500฿ ตั้งแต่ 5 ก.ค. 2567 และการยกเลิก Duty Exemption 1,500฿ ตั้งแต่ 1 ม.ค. 2026) และแนวปฏิบัติ TCCT (กขค.) ต่อผู้เล่นแต่ละกลุ่ม",
+    source_text="กรมสรรพากร/กรมศุลกากร (VAT 7% สินค้า <1,500฿ + ยกเลิก Duty Exemption 1,500฿) และสำนักงานคณะกรรมการการแข่งขันทางการค้า (TCCT Guideline 6 ด้าน, published 24 มี.ค. 2026 / effective 25 มี.ค. 2026)",
+    source_offset=-0.30
 )
 
 plt.savefig("../charts/04_1_regulatory_impact_heatmap.png")

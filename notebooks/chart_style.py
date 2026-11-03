@@ -66,7 +66,7 @@ def setup_plot_style():
         "savefig.pad_inches": 0.25,
     })
 
-def add_title_and_source(ax, title, subtitle=None, source_text=None):
+def add_title_and_source(ax, title, subtitle=None, source_text=None, source_offset=-0.15):
     """Apply insight title, optional subtitle, and bottom source citation."""
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
@@ -84,7 +84,7 @@ def add_title_and_source(ax, title, subtitle=None, source_text=None):
 
     if source_text:
         ax.text(
-            0.0, -0.15, f"แหล่งข้อมูล (Source): {source_text}",
+            0.0, source_offset, f"แหล่งข้อมูล (Source): {source_text}",
             transform=ax.transAxes,
             fontsize=9, color="#6B7280",
             ha="left", va="top"
