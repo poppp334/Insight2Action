@@ -23,7 +23,7 @@ This skill provides a structured, executive-grade review workflow to identify we
 Run the diagnostic script [audit_project.py](./scripts/audit_project.py) to check structural completeness, dataset cross-consistency, notebook execution state, chart image dimensions/DPI, and markdown link integrity:
 
 ```bash
-/home/windows/Projects/Lab/shopee-bd-analysis/.venv/bin/python /home/windows/Projects/Lab/.agents/skills/bd-project-reviewer/scripts/audit_project.py /home/windows/Projects/Lab/shopee-bd-analysis
+/home/windows/Projects/Lab/Insight2Action/.venv/bin/python /home/windows/Projects/Lab/Insight2Action/.agents/skills/bd-project-reviewer/scripts/audit_project.py /home/windows/Projects/Lab/Insight2Action
 ```
 
 ### Step 2: Conduct Deep BD & Visual Critique

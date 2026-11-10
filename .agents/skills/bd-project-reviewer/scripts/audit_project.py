@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Automated Technical & Content Depth Audit for Shopee BD Analysis Project."""
+"""Automated Technical & Content Depth Audit for Insight2Action."""
 
 import os
 import re
 import sys
 import json
+from pathlib import Path
 import pandas as pd
 from PIL import Image
 
@@ -118,5 +119,5 @@ def audit_project(project_dir: str):
 
 
 if __name__ == "__main__":
-    target = sys.argv[1] if len(sys.argv) > 1 else "/home/windows/Projects/Lab/shopee-bd-analysis"
+    target = sys.argv[1] if len(sys.argv) > 1 else str(Path(__file__).resolve().parents[4])
     audit_project(target)

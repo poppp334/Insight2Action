@@ -1,11 +1,11 @@
-"""Build and execute all 6 Jupyter notebooks for shopee-bd-analysis."""
+"""Build and execute all 6 Jupyter notebooks for Insight2Action."""
 
 import os
 import nbformat
 from nbformat.v4 import new_notebook, new_markdown_cell, new_code_cell
 from nbclient import NotebookClient
 
-BASE_DIR = "/home/windows/Projects/Lab/shopee-bd-analysis"
+BASE_DIR = "/home/windows/Projects/Lab/Insight2Action"
 NB_DIR = os.path.join(BASE_DIR, "notebooks")
 
 def build_and_run_notebook(filename, cells):

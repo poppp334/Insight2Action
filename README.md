@@ -1,4 +1,5 @@
-# Shopee at the Crossroads: Defend or Attack?
+# Insight2Action
+## Shopee at the Crossroads: Defend or Attack?
 ### A Business Development (BD) Assessment of Platform Strategy in the Era of Chinese E-Commerce
 
 > **Central Question:** *Shopee ควรจัดสรรทรัพยากร (Resource Allocation) ระหว่าง "การป้องกัน Market Share" กับ "การรักษา Profitability" อย่างไร จึงจะรักษาตำแหน่งผู้นำตลาดในอีก 18 เดือนข้างหน้า?*
@@ -202,7 +203,7 @@
 ## Repository Structure & Reproducibility (โครงสร้างโปรเจ็คและการรันโค้ด)
 
 ```text
-shopee-bd-analysis/
+Insight2Action/
 ├── data/
 │   ├── raw/                  # ข้อมูลดิบที่ผ่านการตรวจสอบ + เอกสารระบุแหล่งที่มา (Source Notes)
 │   │   ├── data_sources_and_notes.md
@@ -241,7 +242,7 @@ shopee-bd-analysis/
 
 ### วิธีรันโค้ดเพื่อสร้างกราฟและรัน Notebooks ใหม่ (How to Run Locally)
 ```bash
-cd shopee-bd-analysis
+cd Insight2Action
 uv venv .venv
 uv pip install pandas matplotlib nbformat nbclient ipykernel fonttools
 .venv/bin/python notebooks/generate_all_notebooks.py
